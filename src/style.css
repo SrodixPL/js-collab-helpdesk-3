@@ -2,14 +2,20 @@ html{
     background-color: black;
 }
 *{
-
+    font-family: fantasy;
     color: white;
 }
+#title{
+    width: 400px;
+}
 .container {
-    background-color: darkslategray;
+    padding: 2%;
+    background-color: black;
     width: 80%;
     height: 30%;
     border-radius: 30px;
-    box-shadow: -10px 10px 20px whitesmoke;
+    box-shadow: 0px 5px 80px red;
     align-items: center;
 }
+
+    
