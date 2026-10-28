@@ -1,31 +1,38 @@
 const Tickets = [];
-
-// function createTicket(id, text, priority, state) {
-//     Tickets.push({
-//         id: id,
-//         text: text,
-//         priority: priority,
-//         state: state
-//     })
-// }
 let flag = 0;
 
 function createTicket() {
     flag++;
-    let NAME = document.querySelector('#title');
-    let PRIO = document.querySelector('.RadioPiorytet').value;
-    let STATUS = document.querySelector('.RadioStatus').value;
+
+    let NAME = document.querySelector('#title').value;
+    let PRIO = document.querySelector('.RadioPiorytet:checked').value;
+    let STATUS = document.querySelector('.RadioStatus:checked').value;
+
     Tickets.push({
         id: flag,
         text: NAME,
         priority: PRIO,
         state: STATUS
-    })
+    });
+
+    displayTickets();
 }
 
+function displayTickets() {
+    let display = document.querySelector('#ticketsList');
 
+    display.innerHTML = "";
 
-
-function updateTicket() {
-
+    Tickets.forEach(ticket => {
+        display.innerHTML += `
+            <li>
+                <ol>
+                    <li>ID: ${ticket.id}</li>
+                    <li>Title: ${ticket.text}</li>
+                    <li>Priority: ${ticket.priority}</li>
+                    <li>Status: ${ticket.state}</li>
+                </ol>
+            </li>
+        `;
+    });
 }
