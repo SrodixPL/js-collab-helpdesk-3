@@ -1,0 +1,15 @@
+html{
+    background-color: black;
+}
+*{
+
+    color: white;
+}
+.container {
+    background-color: darkslategray;
+    width: 80%;
+    height: 30%;
+    border-radius: 30px;
+    box-shadow: -10px 10px 20px whitesmoke;
+    align-items: center;
+}

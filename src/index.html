@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Helpdesk</title>
     <script src="main.js" defer></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <center>
     <div class="container">
         <div class="InputTile">
             <form id="ticketForm">
@@ -22,21 +24,21 @@
                     required
                 >
 
-                <br><br>
+                <br>
 
                 <div id="statusTile">
                     <p>Status:</p>
 
                     <input type="radio" name="status" id="statusnew"
-                        value="new" checked>
+                        value="new" checked class="RadioStatus">
                     <label for="statusnew">new</label>
 
                     <input type="radio" name="status" id="statusdoing"
-                        value="doing">
+                        value="doing" class="RadioStatus">
                     <label for="statusdoing">doing</label>
 
                     <input type="radio" name="status" id="statusdone"
-                        value="done">
+                        value="done" class="RadioStatus">
                     <label for="statusdone">done</label>
                 </div>
 
@@ -46,21 +48,21 @@
                     <p>Priorytet:</p>
 
                     <input type="radio" name="Priorytet"
-                        id="NiskiPriorytet" value="low">
-                    <label for="NiskiPriorytet">Niski</label>
+                        id="NiskiPriorytet" value="low" class="RadioPriorytet">
+                    <label for="NiskiPriorytet" style="color: greenyellow;">Niski</label>
 
                     <input type="radio" name="Priorytet"
-                        id="ŚredniPriorytet" value="normal" checked>
-                    <label for="ŚredniPriorytet">Średni</label>
+                        id="ŚredniPriorytet" value="normal" checked class="RadioPriorytet" >
+                    <label for="ŚredniPriorytet" style="color: yellow;"">Średni</label>
 
                     <input type="radio" name="Priorytet"
-                        id="WysokiPriorytet" value="high">
-                    <label for="WysokiPriorytet">Wysoki</label>
+                        id="WysokiPriorytet" value="high" class="RadioPriorytet" >
+                    <label for="WysokiPriorytet" style="color: red;""> Wysoki</label>
                 </div>
 
                 <br>
 
-                <button type="submit" id="add">
+                <button type="button" id="add">
                     Dodaj zgłoszenie
                 </button>
             </form>
@@ -71,5 +73,6 @@
             <div id="ticketList"></div>
         </div>
     </div>
+    </center>
 </body>
 </html>
