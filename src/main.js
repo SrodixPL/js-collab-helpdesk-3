@@ -2,17 +2,42 @@ const Tickets = [];
 const Priorities = ["Niski", "Średni", "Wysoki"]
 const States = ["Nowy", "W trakcie rozpatrywania", "W trakcie testów", "Ukończone"]
 
-function createTicket(id, text, priority, state) {
+let flag = 0;
+
+function createTicket() {
+    flag++;
+
+    let NAME = document.querySelector('#title').value;
+    let PRIO = document.querySelector('.RadioPiorytet:checked').value;
+    let STATUS = document.querySelector('.RadioStatus:checked').value;
+
     Tickets.push({
-        id: id,
-        text: text,
-        priority: priority,
-        state: state
-    })
+        id: flag,
+        text: NAME,
+        priority: PRIO,
+        state: STATUS
+    });
+
+    displayTickets();
 }
 
-function updateTicket() {
+function displayTickets() {
+    let display = document.querySelector('#ticketsList');
 
+    display.innerHTML = "";
+
+    Tickets.forEach(ticket => {
+        display.innerHTML += `
+            <li>
+                <ol>
+                    <li>ID: ${ticket.id}</li>
+                    <li>Title: ${ticket.text}</li>
+                    <li>Priority: ${ticket.priority}</li>
+                    <li>Status: ${ticket.state}</li>
+                </ol>
+            </li>
+        `;
+    });
 }
 
 // text: string
@@ -74,38 +99,4 @@ function sortTickets(text, priority, state, order) {
         .filter(ticket =>
             ticket.text.toLowerCase().includes(text.toLowerCase())
         );
-let flag = 0;
-
-
-    let NAME = document.querySelector('#title').value;
-    let PRIO = document.querySelector('.RadioPiorytet:checked').value;
-    let STATUS = document.querySelector('.RadioStatus:checked').value;
-
-    Tickets.push({
-        id: flag,
-        text: NAME,
-        priority: PRIO,
-        state: STATUS
-    });
-
-    displayTickets();
-}
-
-function displayTickets() {
-    let display = document.querySelector('#ticketsList');
-
-    display.innerHTML = "";
-
-    Tickets.forEach(ticket => {
-        display.innerHTML += `
-            <li>
-                <ol>
-                    <li>ID: ${ticket.id}</li>
-                    <li>Title: ${ticket.text}</li>
-                    <li>Priority: ${ticket.priority}</li>
-                    <li>Status: ${ticket.state}</li>
-                </ol>
-            </li>
-        `;
-    });
-}
+    }
