@@ -40,14 +40,19 @@
             <section class="col-12 col-lg-8" aria-labelledby="ticketListHeading">
                 <h2 id="ticketListHeading" class="h4 mb-3">Zgłoszenia</h2>
                 <div class="row align-items-center g-2 mb-3">
-                    <div class="col-auto"><label for="statusFilter" class="col-form-label">Filtr statusu:</label></div>
+                    <fieldset id="statusFilter" class="col-12 mb-2">
+                        <legend class="fs-6 mb-1">Filtr statusu:</legend>
+                        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" id="filterNew" value="new" checked><label class="form-check-label" for="filterNew">Nowe</label></div>
+                        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" id="filterDoing" value="doing" checked><label class="form-check-label" for="filterDoing">W Realizacji</label></div>
+                        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" id="filterTesting" value="testing" checked><label class="form-check-label" for="filterTesting">W Testach</label></div>
+                        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" id="filterDone" value="done" checked><label class="form-check-label" for="filterDone">Ukończone</label></div>
+                    </fieldset>
+                    <div class="col-auto"><label for="prioritySorter" class="col-form-label">Sortuj priorytet:</label></div>
                     <div class="col-12 col-sm-auto">
-                        <select id="statusFilter" class="form-select">
-                            <option value="all">Wszystkie</option>
-                            <option value="new">Nowe</option>
-                            <option value="doing">W Realizacji</option>
-                            <option value="testing">W Testach</option>
-                            <option value="done">Ukończone</option>
+                        <select id="prioritySorter" class="form-select">
+                            <option value="none">Brak</option>
+                            <option value="htl">Wysoki do Niski</option>
+                            <option value="lth">Niski do Wysoki</option>
                         </select>
                     </div>
                 </div>

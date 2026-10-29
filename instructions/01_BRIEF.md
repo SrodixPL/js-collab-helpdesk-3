@@ -57,6 +57,3 @@ Wydzielacie `createTicketRow(ticket)` z renderu i powtarzcie te same próby.
 ### Opcjonalnie: 
 
 Sortowanie widoku bez zmiany tożsamości i źródłowej kolejności.
-
-
-
