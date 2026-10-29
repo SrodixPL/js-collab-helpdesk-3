@@ -1,78 +1,61 @@
-
 <!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Helpdesk</title>
+    <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
     <script src="main.js" defer></script>
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <br>
-    <center>
-    <div class="container">
-        <div class="InputTile">
-            <form id="ticketForm">
-                <label for="title">Tytuł zgłoszenia:</label>
-                <input
-                    type="text"
-                    placeholder="Nazwa"
-                    name="title"
-                    id="title"
-                    minlength="3"
-                    maxlength="80"
-                    required
-                >
-
-                <br>
-
-                <div id="statusTile">
-                    <p>Status:</p>
-
-                    <input type="radio" name="status" id="statusnew"
-                        value="new" checked class="RadioStatus">
-                    <label for="statusnew">new</label>
-
-                    <input type="radio" name="status" id="statusdoing"
-                        value="doing" class="RadioStatus">
-                    <label for="statusdoing">doing</label>
-
-                    <input type="radio" name="status" id="statusdone"
-                        value="done" class="RadioStatus">
-                    <label for="statusdone">done</label>
+    <main class="container py-4">
+        <h1 class="mb-4">Helpdesk</h1>
+        <div class="row g-4">
+            <section class="col-12 col-lg-4" aria-labelledby="newTicketHeading">
+                <h2 id="newTicketHeading" class="h4 mb-3">Nowe zgłoszenie</h2>
+                <form id="ticketForm" novalidate>
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Tytuł zgłoszenia:</label>
+                        <input type="text" class="form-control" placeholder="Nazwa" name="title" id="title" aria-describedby="formMessage" minlength="3" required>
+                    </div>
+                    <fieldset class="mb-3">
+                        <legend class="fs-6">Priorytet:</legend>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="Priorytet" id="NiskiPriorytet" value="low" class="form-check-input">
+                            <label for="NiskiPriorytet" class="form-check-label">Niski</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="Priorytet" id="ŚredniPriorytet" value="normal" checked class="form-check-input">
+                            <label for="ŚredniPriorytet" class="form-check-label">Średni</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="Priorytet" id="WysokiPriorytet" value="high" class="form-check-input">
+                            <label for="WysokiPriorytet" class="form-check-label">Wysoki</label>
+                        </div>
+                    </fieldset>
+                    <button type="submit" id="add" class="btn btn-primary">Dodaj zgłoszenie</button>
+                    <p id="formMessage" role="status" class="small mt-3 mb-0"></p>
+                </form>
+            </section>
+            <section class="col-12 col-lg-8" aria-labelledby="ticketListHeading">
+                <h2 id="ticketListHeading" class="h4 mb-3">Zgłoszenia</h2>
+                <div class="row align-items-center g-2 mb-3">
+                    <div class="col-auto"><label for="statusFilter" class="col-form-label">Filtr statusu:</label></div>
+                    <div class="col-12 col-sm-auto">
+                        <select id="statusFilter" class="form-select">
+                            <option value="all">Wszystkie</option>
+                            <option value="new">Nowe</option>
+                            <option value="doing">W Realizacji</option>
+                            <option value="testing">W Testach</option>
+                            <option value="done">Ukończone</option>
+                        </select>
+                    </div>
                 </div>
-
-
-                <div id="PriorityTile">
-                    <p>Priorytet:</p>
-
-                    <input type="radio" name="Priorytet"
-                        id="NiskiPriorytet" value="low" class="RadioPriorytet">
-                    <label for="NiskiPriorytet" style="color: greenyellow;">Niski</label>
-
-                    <input type="radio" name="Priorytet"
-                        id="ŚredniPriorytet" value="normal" checked class="RadioPriorytet" >
-                    <label for="ŚredniPriorytet" style="color: yellow;"">Średni</label>
-
-                    <input type="radio" name="Priorytet"
-                        id="WysokiPriorytet" value="high" class="RadioPriorytet" >
-                    <label for="WysokiPriorytet" style="color: red;""> Wysoki</label>
-                </div>
-
-                <br>
-
-                <button type="button" id="add" style="color: black;">
-                    Dodaj zgłoszenie
-                </button>
-            </form>
+                <p id="ticketCounter" class="text-body-secondary small">Widoczne: 0 / Wszystkie: 0</p>
+                <p id="emptyMessage" class="text-body-secondary"></p>
+                <ul id="ticketList" class="list-group"></ul>
+            </section>
         </div>
-
-        <div class="ShowTile">
-            <p id="ticketCounter">Widoczne: 0 / Wszystkie: 0</p>
-            <div id="ticketList"></div>
-        </div>
-    </div>
-    </center>
+    </main>
 </body>
 </html>
